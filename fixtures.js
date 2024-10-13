@@ -1,6 +1,6 @@
 // fixtures.js
 const { test } = require('@playwright/test');
-const HomePage = require('./pages/homePage'); // Asegúrate de que la ruta sea correcta
+const HomePage = require('./pages/homePage');
 const LoginPage = require('./pages/loginPage');
 const SignUpPage = require('./pages/signupPage');
 

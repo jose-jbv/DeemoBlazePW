@@ -24,18 +24,18 @@ function updateEnvFile(username) {
       const updatedData = data.replace(/TEST_USER=.*/g, newEnvVariable.trim());
       fs.writeFile(envFilePath, updatedData, (err) => {
         if (err) {
-          console.error('Error al escribir en el archivo .env:', err);
+          console.error('Error writting in .env file:', err);
         } else {
-          console.log('Variable TEST_USER actualizada en el archivo .env');
+          console.log('Updating TEST_USER in .env');
         }
       });
     } else {
       // Añadir la nueva variable al final del archivo .env
       fs.appendFile(envFilePath, newEnvVariable, (err) => {
         if (err) {
-          console.error('Error al añadir en el archivo .env:', err);
+          console.error('Error adding in .env file:', err);
         } else {
-          console.log('Variable TEST_USER añadida en el archivo .env');
+          console.log('TEST_USER variable as been added on .env file.');
         }
       });
     }

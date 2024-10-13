@@ -1,12 +1,11 @@
-// tests/signup.spec.js
-require('dotenv').config(); // Cargar variables de entorno desde el archivo .env
-const { test, expect } = require('@playwright/test'); // Importar desde '@playwright/test'
-const HomePage = require('../pages/homePage'); // Asegúrate de que la ruta sea correcta
+require('dotenv').config(); // Load .env variables
+const { test, expect } = require('@playwright/test');
+const HomePage = require('../pages/homePage'); 
 const SignUpPage = require('../pages/signupPage');
-const { generateAndSaveUsername } = require('../utils/userUtil'); // Importar la función de utilidad
+const { generateAndSaveUsername } = require('../utils/userUtil'); 
 
 const testUser = {
-  username: generateAndSaveUsername(), // Generar y guardar el nombre de usuario
+  username: generateAndSaveUsername(),
   password: process.env.TEST_PASSWORD,
 };
 
@@ -15,11 +14,8 @@ test.describe('Sign Up Functionality', () => {
     const homePage = new HomePage(page);
     const signUpPage = new SignUpPage(page);
 
-    await page.goto('/'); // Usar baseURL automáticamente
+    await page.goto('/');
     await homePage.goToSignUpPage();
     await signUpPage.signUp(testUser.username, testUser.password);
-
-    // Aserciones necesarias después del registro
-    // await expect(page.locator('.alert-success')).toBeVisible(); // Asegúrate de que la clase sea correcta
   });
 });
